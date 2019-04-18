@@ -79,6 +79,6 @@ var OrbitaTextInput = /** @class */ (function (_super) {
     };
     OrbitaTextInput.contextType = OrbitaProvider_1.OrbitaContext;
     return OrbitaTextInput;
-}(react_1.default.Component));
+}(react_1.Component));
 exports.default = OrbitaTextInput;
 //# sourceMappingURL=OrbitaTextInput.js.map

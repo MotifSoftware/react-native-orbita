@@ -18,6 +18,6 @@ var OrbitaProvider = /** @class */ (function (_super) {
       </exports.OrbitaContext.Provider>);
     };
     return OrbitaProvider;
-}(react_1.default.Component));
+}(react_1.Component));
 exports.default = OrbitaProvider;
 //# sourceMappingURL=OrbitaProvider.js.map

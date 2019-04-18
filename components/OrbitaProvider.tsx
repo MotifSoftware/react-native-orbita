@@ -1,4 +1,4 @@
-import React, { ReactNode, createContext } from 'react';
+import React, { Component, ReactNode, createContext } from 'react';
 
 export interface Props {
   children?: ReactNode;
@@ -9,7 +9,7 @@ export const OrbitaContext = createContext({
   endpoint: '',
 });
 
-class OrbitaProvider extends React.Component<Props> {
+class OrbitaProvider extends Component<Props> {
   render() {
     const { endpoint, children } = this.props;
 

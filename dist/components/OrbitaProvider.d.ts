@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import React, { Component, ReactNode } from 'react';
 export interface Props {
     children?: ReactNode;
     endpoint: string;
@@ -6,7 +6,7 @@ export interface Props {
 export declare const OrbitaContext: React.Context<{
     endpoint: string;
 }>;
-declare class OrbitaProvider extends React.Component<Props> {
+declare class OrbitaProvider extends Component<Props> {
     render(): JSX.Element;
 }
 export default OrbitaProvider;

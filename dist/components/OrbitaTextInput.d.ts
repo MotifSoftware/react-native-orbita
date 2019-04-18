@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { NativeSyntheticEvent, TextInputSubmitEditingEventData } from 'react-native';
 import { Choice } from './types';
 export interface Props {
@@ -11,7 +11,7 @@ export interface Props {
 export interface State {
     text: string;
 }
-export default class OrbitaTextInput extends React.Component<Props, State> {
+export default class OrbitaTextInput extends Component<Props, State> {
     static contextType: React.Context<{
         endpoint: string;
     }>;

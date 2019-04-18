@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { TextInput, NativeSyntheticEvent, TextInputSubmitEditingEventData } from 'react-native';
 import { OrbitaContext } from './OrbitaProvider';
 import { APIClient } from 'orbita-api-client';
@@ -16,7 +16,7 @@ export interface State {
   text: string;
 };
 
-export default class OrbitaTextInput extends React.Component<Props, State> {
+export default class OrbitaTextInput extends Component<Props, State> {
   static contextType = OrbitaContext;
 
   state = {
