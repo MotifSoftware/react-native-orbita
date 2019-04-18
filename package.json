@@ -1,6 +1,6 @@
 {
   "name": "react-native-orbita",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -19,14 +19,14 @@
   },
   "dependencies": {
     "orbita-api-client": "github:MotifSoftware/orbita-api-client",
-    "react-native-voice": "^0.2.6"
+    "react-native-voice": "^0.2.6",
+    "tslib": "^1.9.3"
   },
   "devDependencies": {
     "@types/react": "^16.8.13",
     "@types/react-native": "^0.57.45",
     "react-native-scripts-ts": "1.7.0",
     "react-native-typescript-transformer": "^1.2.12",
-    "tslib": "^1.9.3",
     "typescript": "^2.9.2"
   }
 }
