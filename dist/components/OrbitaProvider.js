@@ -13,9 +13,7 @@ var OrbitaProvider = /** @class */ (function (_super) {
     }
     OrbitaProvider.prototype.render = function () {
         var _a = this.props, endpoint = _a.endpoint, children = _a.children;
-        return (<exports.OrbitaContext.Provider value={{ endpoint: endpoint }}>
-        {children}
-      </exports.OrbitaContext.Provider>);
+        return (react_1.default.createElement(exports.OrbitaContext.Provider, { value: { endpoint: endpoint } }, children));
     };
     return OrbitaProvider;
 }(react_1.Component));

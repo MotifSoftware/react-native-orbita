@@ -60,7 +60,7 @@ var OrbitaMicButton = /** @class */ (function (_super) {
         return _this;
     }
     OrbitaMicButton.prototype.render = function () {
-        return (<MicButton_1.default onResults={this.handleResults}/>);
+        return (react_1.default.createElement(MicButton_1.default, { onResults: this.handleResults }));
     };
     OrbitaMicButton.contextType = OrbitaProvider_1.OrbitaContext;
     return OrbitaMicButton;

@@ -94,9 +94,8 @@ var MicButton = /** @class */ (function (_super) {
     ;
     MicButton.prototype.render = function () {
         var isRecording = this.state.isRecording;
-        return (<react_native_1.TouchableOpacity onPress={this.record}>
-        <react_native_1.Image style={styles.button} source={isRecording ? microphone_active_png_1.default : microphone_png_1.default}/>
-      </react_native_1.TouchableOpacity>);
+        return (react_1.default.createElement(react_native_1.TouchableOpacity, { onPress: this.record },
+            react_1.default.createElement(react_native_1.Image, { style: styles.button, source: isRecording ? microphone_active_png_1.default : microphone_png_1.default })));
     };
     MicButton.defaultProps = {
         silenceTimeout: defaultSilenceTimeout,

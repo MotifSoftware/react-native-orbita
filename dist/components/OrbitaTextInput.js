@@ -75,7 +75,7 @@ var OrbitaTextInput = /** @class */ (function (_super) {
     OrbitaTextInput.prototype.render = function () {
         var _this = this;
         var text = this.state.text;
-        return (<react_native_1.TextInput {...this.props} onChangeText={function (text) { return _this.setState({ text: text }); }} value={text} multiline={false} onSubmitEditing={this.handleSubmitEditing}/>);
+        return (react_1.default.createElement(react_native_1.TextInput, tslib_1.__assign({}, this.props, { onChangeText: function (text) { return _this.setState({ text: text }); }, value: text, multiline: false, onSubmitEditing: this.handleSubmitEditing })));
     };
     OrbitaTextInput.contextType = OrbitaProvider_1.OrbitaContext;
     return OrbitaTextInput;
