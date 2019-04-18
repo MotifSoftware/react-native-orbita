@@ -1,14 +1,12 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-var tslib_1 = require("tslib");
-var react_1 = require("react");
-var react_native_1 = require("react-native");
-var react_native_voice_1 = require("react-native-voice");
-var microphone_png_1 = require("./assets/microphone.png");
-var microphone_active_png_1 = require("./assets/microphone-active.png");
+import * as tslib_1 from "tslib";
+import React, { Component } from 'react';
+import { Image, StyleSheet, TouchableOpacity } from 'react-native';
+import Voice from 'react-native-voice';
+import icon from './assets/microphone.png';
+import activeIcon from './assets/microphone-active.png';
 ;
 ;
-var styles = react_native_1.StyleSheet.create({
+var styles = StyleSheet.create({
     button: {
         width: 50,
         height: 50,
@@ -30,12 +28,12 @@ var MicButton = /** @class */ (function (_super) {
             var _a = _this.state, isRecording = _a.isRecording, results = _a.results;
             if (isRecording) {
                 _this.clearTimeout();
-                react_native_voice_1.default.stop();
+                Voice.stop();
             }
         };
         _this.record = function () {
             _this.stopRecording();
-            react_native_voice_1.default.start();
+            Voice.start();
         };
         _this.checkIfSilent = function () {
             var _a = _this.state, lastMessage = _a.lastMessage, results = _a.results;
@@ -61,9 +59,9 @@ var MicButton = /** @class */ (function (_super) {
             _this.timeoutHandle = null;
         };
         _this.timeoutHandle = null;
-        react_native_voice_1.default.onSpeechStart = _this.handleSpeechStart.bind(_this);
-        react_native_voice_1.default.onSpeechEnd = _this.handleSpeechEnd.bind(_this);
-        react_native_voice_1.default.onSpeechPartialResults = _this.handleSpeechPartialResults.bind(_this);
+        Voice.onSpeechStart = _this.handleSpeechStart.bind(_this);
+        Voice.onSpeechEnd = _this.handleSpeechEnd.bind(_this);
+        Voice.onSpeechPartialResults = _this.handleSpeechPartialResults.bind(_this);
         return _this;
     }
     MicButton.prototype.handleSpeechStart = function () {
@@ -94,13 +92,13 @@ var MicButton = /** @class */ (function (_super) {
     ;
     MicButton.prototype.render = function () {
         var isRecording = this.state.isRecording;
-        return (react_1.default.createElement(react_native_1.TouchableOpacity, { onPress: this.record },
-            react_1.default.createElement(react_native_1.Image, { style: styles.button, source: isRecording ? microphone_active_png_1.default : microphone_png_1.default })));
+        return (React.createElement(TouchableOpacity, { onPress: this.record },
+            React.createElement(Image, { style: styles.button, source: isRecording ? activeIcon : icon })));
     };
     MicButton.defaultProps = {
         silenceTimeout: defaultSilenceTimeout,
     };
     return MicButton;
-}(react_1.Component));
-exports.default = MicButton;
+}(Component));
+export default MicButton;
 //# sourceMappingURL=MicButton.js.map

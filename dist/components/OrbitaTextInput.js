@@ -1,10 +1,8 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-var tslib_1 = require("tslib");
-var react_1 = require("react");
-var react_native_1 = require("react-native");
-var OrbitaProvider_1 = require("./OrbitaProvider");
-var orbita_api_client_1 = require("orbita-api-client");
+import * as tslib_1 from "tslib";
+import React, { Component } from 'react';
+import { TextInput } from 'react-native';
+import { OrbitaContext } from './OrbitaProvider';
+import { APIClient } from 'orbita-api-client';
 ;
 ;
 var OrbitaTextInput = /** @class */ (function (_super) {
@@ -22,7 +20,7 @@ var OrbitaTextInput = /** @class */ (function (_super) {
                 _a = this.props, sessionId = _a.sessionId, onResults = _a.onResults, onError = _a.onError, onSend = _a.onSend;
                 if (settings) {
                     endpoint = settings.endpoint;
-                    client_1 = new orbita_api_client_1.APIClient({
+                    client_1 = new APIClient({
                         chat: {
                             endpoint: endpoint,
                             orbitaNodeVersion: 2,
@@ -75,10 +73,10 @@ var OrbitaTextInput = /** @class */ (function (_super) {
     OrbitaTextInput.prototype.render = function () {
         var _this = this;
         var text = this.state.text;
-        return (react_1.default.createElement(react_native_1.TextInput, tslib_1.__assign({}, this.props, { onChangeText: function (text) { return _this.setState({ text: text }); }, value: text, multiline: false, onSubmitEditing: this.handleSubmitEditing })));
+        return (React.createElement(TextInput, tslib_1.__assign({}, this.props, { onChangeText: function (text) { return _this.setState({ text: text }); }, value: text, multiline: false, onSubmitEditing: this.handleSubmitEditing })));
     };
-    OrbitaTextInput.contextType = OrbitaProvider_1.OrbitaContext;
+    OrbitaTextInput.contextType = OrbitaContext;
     return OrbitaTextInput;
-}(react_1.Component));
-exports.default = OrbitaTextInput;
+}(Component));
+export default OrbitaTextInput;
 //# sourceMappingURL=OrbitaTextInput.js.map

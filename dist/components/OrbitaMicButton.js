@@ -1,10 +1,8 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-var tslib_1 = require("tslib");
-var react_1 = require("react");
-var OrbitaProvider_1 = require("./OrbitaProvider");
-var MicButton_1 = require("./MicButton");
-var orbita_api_client_1 = require("orbita-api-client");
+import * as tslib_1 from "tslib";
+import React, { Component } from 'react';
+import { OrbitaContext } from './OrbitaProvider';
+import MicButton from './MicButton';
+import { APIClient } from 'orbita-api-client';
 ;
 var OrbitaMicButton = /** @class */ (function (_super) {
     tslib_1.__extends(OrbitaMicButton, _super);
@@ -19,7 +17,7 @@ var OrbitaMicButton = /** @class */ (function (_super) {
                         _a = this.props, sessionId = _a.sessionId, onResults = _a.onResults, onError = _a.onError, onSend = _a.onSend;
                         if (!settings) return [3 /*break*/, 2];
                         endpoint = settings.endpoint;
-                        client = new orbita_api_client_1.APIClient({
+                        client = new APIClient({
                             chat: {
                                 endpoint: endpoint,
                                 orbitaNodeVersion: 2,
@@ -60,10 +58,10 @@ var OrbitaMicButton = /** @class */ (function (_super) {
         return _this;
     }
     OrbitaMicButton.prototype.render = function () {
-        return (react_1.default.createElement(MicButton_1.default, { onResults: this.handleResults }));
+        return (React.createElement(MicButton, { onResults: this.handleResults }));
     };
-    OrbitaMicButton.contextType = OrbitaProvider_1.OrbitaContext;
+    OrbitaMicButton.contextType = OrbitaContext;
     return OrbitaMicButton;
-}(react_1.Component));
-exports.default = OrbitaMicButton;
+}(Component));
+export default OrbitaMicButton;
 //# sourceMappingURL=OrbitaMicButton.js.map
