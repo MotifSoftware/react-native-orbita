@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { OrbitaContext } from './OrbitaProvider';
 import MicButton from './MicButton';
 import { APIClient } from 'orbita-api-client';
+import { Choice } from './types';
 
 export interface Props {
   sessionId: string;

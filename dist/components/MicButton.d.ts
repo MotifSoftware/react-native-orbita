@@ -14,7 +14,7 @@ export default class MicButton extends Component<Props, State> {
         silenceTimeout: number;
     };
     state: State;
-    timeoutHandle: number | null;
+    timeoutHandle: NodeJS.Timeout | null;
     constructor(props: Props);
     handleSpeechStart(): void;
     handleSpeechEnd(): void;

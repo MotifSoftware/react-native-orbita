@@ -38,7 +38,7 @@ export default class MicButton extends Component<Props, State> {
 
   state = initialState;
 
-  timeoutHandle: number | null;
+  timeoutHandle: NodeJS.Timeout | null;
 
   constructor(props: Props) {
     super(props);

@@ -1,5 +1,6 @@
 import React from 'react';
 import { NativeSyntheticEvent, TextInputSubmitEditingEventData } from 'react-native';
+import { Choice } from './types';
 export interface Props {
     sessionId: string;
     defaultValue?: string;

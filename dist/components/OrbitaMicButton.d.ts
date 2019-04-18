@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Choice } from './types';
 export interface Props {
     sessionId: string;
     onResults?: (responseText: string, choices: Array<Choice>, requestText: string) => any;
