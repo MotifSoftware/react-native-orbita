@@ -1,11 +1,11 @@
-import React, { ReactNode } from 'react';
+import React, { ReactNode, createContext } from 'react';
 
 export interface Props {
   children?: ReactNode;
   endpoint: string;
 };
 
-export const OrbitaContext = React.createContext({
+export const OrbitaContext = createContext({
   endpoint: '',
 });
 
