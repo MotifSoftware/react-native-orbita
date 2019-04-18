@@ -38,19 +38,19 @@ export default class OrbitaTextInput extends Component<Props, State> {
 
       if (onSend) onSend(message);
 
-      this.setState({ text: '' }, async () => {
-        const response = await client.Chat.send({
-          message,
-          sessionId,
-          audio: true,
-        });
-
-        if (response.type === 'success') {
-          if (onResults) onResults(response.chat.chatText, response.buttons.choices, message);
-        } else {
-          if (onError) onError('Request failed', message);
-        }
+      this.setState({ text: '' });
+      
+      const response = await client.Chat.send({
+        message,
+        sessionId,
+        audio: true,
       });
+
+      if (response.type === 'success') {
+        if (onResults) onResults(response.chat.chatText, response.buttons.choices, message);
+      } else {
+        if (onError) onError('Request failed', message);
+      }
     }
   };
 

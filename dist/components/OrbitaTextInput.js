@@ -13,46 +13,41 @@ var OrbitaTextInput = /** @class */ (function (_super) {
             text: _this.props.defaultValue || '',
         };
         _this.sendMessage = function (message) { return tslib_1.__awaiter(_this, void 0, void 0, function () {
-            var settings, _a, sessionId, onResults, onError, onSend, endpoint, client_1;
-            var _this = this;
+            var settings, _a, sessionId, onResults, onError, onSend, endpoint, client, response;
             return tslib_1.__generator(this, function (_b) {
-                settings = this.context;
-                _a = this.props, sessionId = _a.sessionId, onResults = _a.onResults, onError = _a.onError, onSend = _a.onSend;
-                if (settings) {
-                    endpoint = settings.endpoint;
-                    client_1 = new APIClient({
-                        chat: {
-                            endpoint: endpoint,
-                            orbitaNodeVersion: 2,
-                        },
-                    });
-                    if (onSend)
-                        onSend(message);
-                    this.setState({ text: '' }, function () { return tslib_1.__awaiter(_this, void 0, void 0, function () {
-                        var response;
-                        return tslib_1.__generator(this, function (_a) {
-                            switch (_a.label) {
-                                case 0: return [4 /*yield*/, client_1.Chat.send({
-                                        message: message,
-                                        sessionId: sessionId,
-                                        audio: true,
-                                    })];
-                                case 1:
-                                    response = _a.sent();
-                                    if (response.type === 'success') {
-                                        if (onResults)
-                                            onResults(response.chat.chatText, response.buttons.choices, message);
-                                    }
-                                    else {
-                                        if (onError)
-                                            onError('Request failed', message);
-                                    }
-                                    return [2 /*return*/];
-                            }
+                switch (_b.label) {
+                    case 0:
+                        settings = this.context;
+                        _a = this.props, sessionId = _a.sessionId, onResults = _a.onResults, onError = _a.onError, onSend = _a.onSend;
+                        if (!settings) return [3 /*break*/, 2];
+                        endpoint = settings.endpoint;
+                        client = new APIClient({
+                            chat: {
+                                endpoint: endpoint,
+                                orbitaNodeVersion: 2,
+                            },
                         });
-                    }); });
+                        if (onSend)
+                            onSend(message);
+                        this.setState({ text: '' });
+                        return [4 /*yield*/, client.Chat.send({
+                                message: message,
+                                sessionId: sessionId,
+                                audio: true,
+                            })];
+                    case 1:
+                        response = _b.sent();
+                        if (response.type === 'success') {
+                            if (onResults)
+                                onResults(response.chat.chatText, response.buttons.choices, message);
+                        }
+                        else {
+                            if (onError)
+                                onError('Request failed', message);
+                        }
+                        _b.label = 2;
+                    case 2: return [2 /*return*/];
                 }
-                return [2 /*return*/];
             });
         }); };
         _this.handleSubmitEditing = function (_a) {
