@@ -3,7 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var tslib_1 = require("tslib");
 var react_1 = require("react");
 ;
-exports.OrbitaContext = react_1.default.createContext({
+exports.OrbitaContext = react_1.createContext({
     endpoint: '',
 });
 var OrbitaProvider = /** @class */ (function (_super) {
