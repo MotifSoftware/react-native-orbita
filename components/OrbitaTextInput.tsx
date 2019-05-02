@@ -5,6 +5,7 @@ import { APIClient } from 'orbita-api-client';
 import { Choice } from './types';
 
 export interface Props {
+  customData?: any,
   sessionId: string;
   defaultValue?: string;
   onResults?: (responseText: string, choices: Array<Choice>, requestText: string) => any;
@@ -25,7 +26,7 @@ export default class OrbitaTextInput extends Component<Props, State> {
 
   sendMessage = async (message: string) => {
     const settings = this.context;
-    const { sessionId, onResults, onError, onSend } = this.props;
+    const { customData, sessionId, onResults, onError, onSend } = this.props;
 
     if (settings) {
       const { endpoint } = settings;
@@ -44,6 +45,7 @@ export default class OrbitaTextInput extends Component<Props, State> {
         message,
         sessionId,
         audio: true,
+        customData,
       });
 
       if (response.type === 'success') {

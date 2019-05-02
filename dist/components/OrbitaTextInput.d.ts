@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { NativeSyntheticEvent, TextInputSubmitEditingEventData } from 'react-native';
 import { Choice } from './types';
 export interface Props {
+    customData?: any;
     sessionId: string;
     defaultValue?: string;
     onResults?: (responseText: string, choices: Array<Choice>, requestText: string) => any;

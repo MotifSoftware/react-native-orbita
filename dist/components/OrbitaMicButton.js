@@ -9,12 +9,12 @@ var OrbitaMicButton = /** @class */ (function (_super) {
     function OrbitaMicButton() {
         var _this = _super !== null && _super.apply(this, arguments) || this;
         _this.sendMessage = function (message) { return tslib_1.__awaiter(_this, void 0, void 0, function () {
-            var settings, _a, sessionId, onResults, onError, onSend, endpoint, client, response;
+            var settings, _a, customData, sessionId, onResults, onError, onSend, endpoint, client, response;
             return tslib_1.__generator(this, function (_b) {
                 switch (_b.label) {
                     case 0:
                         settings = this.context;
-                        _a = this.props, sessionId = _a.sessionId, onResults = _a.onResults, onError = _a.onError, onSend = _a.onSend;
+                        _a = this.props, customData = _a.customData, sessionId = _a.sessionId, onResults = _a.onResults, onError = _a.onError, onSend = _a.onSend;
                         if (!settings) return [3 /*break*/, 2];
                         endpoint = settings.endpoint;
                         client = new APIClient({
@@ -29,6 +29,7 @@ var OrbitaMicButton = /** @class */ (function (_super) {
                                 message: message,
                                 sessionId: sessionId,
                                 audio: true,
+                                customData: customData,
                             })];
                     case 1:
                         response = _b.sent();

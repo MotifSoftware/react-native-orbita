@@ -6,6 +6,7 @@ import { Choice } from './types';
 
 export interface Props {
   sessionId: string;
+  customData?: any,
   onResults?: (responseText: string, choices: Array<Choice>, requestText: string) => any;
   onSend?: (text: string) => any;
   onError?: (error: Error | string, requestText: string) => any;
@@ -16,7 +17,7 @@ export default class OrbitaMicButton extends Component<Props> {
 
   sendMessage = async (message: string) => {
     const settings = this.context;
-    const { sessionId, onResults, onError, onSend } = this.props;
+    const { customData, sessionId, onResults, onError, onSend } = this.props;
 
     if (settings) {
       const { endpoint } = settings;
@@ -33,6 +34,7 @@ export default class OrbitaMicButton extends Component<Props> {
         message,
         sessionId,
         audio: true,
+        customData,
       });
 
       if (response.type === 'success') {
