@@ -4,7 +4,7 @@ using ReactNative.UIManager;
 using System;
 using System.Collections.Generic;
 
-namespace Orbita.RNOrbita
+namespace Orbita.ONOrbita
 {
     /// <summary>
     /// Package defining core framework modules (e.g., <see cref="UIManagerModule"/>).
@@ -12,7 +12,7 @@ namespace Orbita.RNOrbita
     /// other framework parts (e.g., with the list of packages to load view
     /// managers from).
     /// </summary>
-    public class RNOrbitaPackage : IReactPackage
+    public class ONOrbitaPackage : IReactPackage
     {
         /// <summary>
         /// Creates the list of native modules to register with the react
@@ -24,7 +24,7 @@ namespace Orbita.RNOrbita
         {
             return new List<INativeModule>
             {
-                new RNOrbitaModule(),
+                new ONOrbitaModule(),
             };
         }
 

@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
-    <ProjectGuid>{2B918CC0-7B2B-11E9-8DB3-9564168D04A1}</ProjectGuid>
+    <ProjectGuid>{67B44B70-7B2B-11E9-B246-9D8389E3F00D}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Orbita</RootNamespace>
@@ -129,9 +129,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RNOrbitaModule.cs" />
-    <Compile Include="RNOrbitaPackage.cs" />
-    <EmbeddedResource Include="Properties\RNOrbita.rd.xml" />
+    <Compile Include="ONOrbitaModule.cs" />
+    <Compile Include="ONOrbitaPackage.cs" />
+    <EmbeddedResource Include="Properties\ONOrbita.rd.xml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="$(ReactWindowsRoot)\react-native-windows\ReactWindows\ReactNative\ReactNative.csproj">

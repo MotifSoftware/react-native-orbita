@@ -6,17 +6,17 @@ import com.facebook.react.bridge.ReactContextBaseJavaModule;
 import com.facebook.react.bridge.ReactMethod;
 import com.facebook.react.bridge.Callback;
 
-public class RNOrbitaModule extends ReactContextBaseJavaModule {
+public class ONOrbitaModule extends ReactContextBaseJavaModule {
 
   private final ReactApplicationContext reactContext;
 
-  public RNOrbitaModule(ReactApplicationContext reactContext) {
+  public ONOrbitaModule(ReactApplicationContext reactContext) {
     super(reactContext);
     this.reactContext = reactContext;
   }
 
   @Override
   public String getName() {
-    return "RNOrbita";
+    return "ONOrbita";
   }
 }

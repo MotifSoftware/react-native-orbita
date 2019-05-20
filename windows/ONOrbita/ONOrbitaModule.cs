@@ -4,17 +4,17 @@ using System.Collections.Generic;
 using Windows.ApplicationModel.Core;
 using Windows.UI.Core;
 
-namespace Orbita.RNOrbita
+namespace Orbita.ONOrbita
 {
     /// <summary>
     /// A module that allows JS to share data.
     /// </summary>
-    class RNOrbitaModule : NativeModuleBase
+    class ONOrbitaModule : NativeModuleBase
     {
         /// <summary>
-        /// Instantiates the <see cref="RNOrbitaModule"/>.
+        /// Instantiates the <see cref="ONOrbitaModule"/>.
         /// </summary>
-        internal RNOrbitaModule()
+        internal ONOrbitaModule()
         {
 
         }
@@ -26,7 +26,7 @@ namespace Orbita.RNOrbita
         {
             get
             {
-                return "RNOrbita";
+                return "ONOrbita";
             }
         }
     }

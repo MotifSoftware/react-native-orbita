@@ -5,7 +5,7 @@
 #import <React/RCTBridgeModule.h>
 #endif
 
-@interface RNOrbita : NSObject <RCTBridgeModule>
+@interface ONOrbita : NSObject <RCTBridgeModule>
 
 @end
   

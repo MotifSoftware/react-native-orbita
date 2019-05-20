@@ -1,7 +1,7 @@
 
-#import "RNOrbita.h"
+#import "ONOrbita.h"
 
-@implementation RNOrbita
+@implementation ONOrbita
 
 - (dispatch_queue_t)methodQueue
 {
