@@ -1,3 +1,4 @@
+/// <reference types="node" />
 import { Component } from 'react';
 import { SpeechResults } from 'react-native-voice';
 export interface Props {

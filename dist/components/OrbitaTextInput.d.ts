@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import { NativeSyntheticEvent, TextInputSubmitEditingEventData } from 'react-native';
-import { Choice } from './types';
+import { OrbitaResponse } from './types';
 export interface Props {
     customData?: any;
     sessionId: string;
     defaultValue?: string;
-    onResults?: (responseText: string, choices: Array<Choice>, requestText: string) => any;
+    onResults?: (response: OrbitaResponse, requestText: string) => any;
     onSend?: (text: string) => any;
     onError?: (error: Error | string, requestText: string) => any;
 }

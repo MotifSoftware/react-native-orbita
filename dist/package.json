@@ -1,6 +1,6 @@
 {
   "name": "react-native-orbita",
-  "version": "1.0.9",
+  "version": "1.0.10",
   "description": "React Native framework for interfacing with the Orbita API.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",

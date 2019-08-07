@@ -40,7 +40,7 @@ var OrbitaTextInput = /** @class */ (function (_super) {
                         response = _b.sent();
                         if (response.type === 'success') {
                             if (onResults)
-                                onResults(response.chat.chatText, response.buttons.choices, message);
+                                onResults(response, message);
                         }
                         else {
                             if (onError)
