@@ -44,10 +44,6 @@ export default class MicButton extends Component<Props, State> {
     super(props);
 
     this.timeoutHandle = null;
-
-    Voice.onSpeechStart = this.handleSpeechStart.bind(this);
-    Voice.onSpeechEnd = this.handleSpeechEnd.bind(this);
-    Voice.onSpeechPartialResults = this.handleSpeechPartialResults.bind(this);
   }
 
   handleSpeechStart() {
@@ -97,6 +93,11 @@ export default class MicButton extends Component<Props, State> {
 
   record = () => {
     this.stopRecording();
+
+    Voice.removeAllListeners();
+    Voice.onSpeechStart = this.handleSpeechStart.bind(this);
+    Voice.onSpeechEnd = this.handleSpeechEnd.bind(this);
+    Voice.onSpeechPartialResults = this.handleSpeechPartialResults.bind(this);
 
     Voice.start();
   };

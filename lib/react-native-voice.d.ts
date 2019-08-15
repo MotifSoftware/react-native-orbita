@@ -8,6 +8,7 @@ declare module 'react-native-voice' {
     onSpeechStart: () => any;
     onSpeechEnd: () => any;
     onSpeechPartialResults: (results: SpeechResults) => any;
+    removeAllListeners: () => any;
     stop: () => void;
     start: () => void;
   }

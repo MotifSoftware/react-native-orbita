@@ -33,6 +33,10 @@ var MicButton = /** @class */ (function (_super) {
         };
         _this.record = function () {
             _this.stopRecording();
+            Voice.removeAllListeners();
+            Voice.onSpeechStart = _this.handleSpeechStart.bind(_this);
+            Voice.onSpeechEnd = _this.handleSpeechEnd.bind(_this);
+            Voice.onSpeechPartialResults = _this.handleSpeechPartialResults.bind(_this);
             Voice.start();
         };
         _this.checkIfSilent = function () {
@@ -59,9 +63,6 @@ var MicButton = /** @class */ (function (_super) {
             _this.timeoutHandle = null;
         };
         _this.timeoutHandle = null;
-        Voice.onSpeechStart = _this.handleSpeechStart.bind(_this);
-        Voice.onSpeechEnd = _this.handleSpeechEnd.bind(_this);
-        Voice.onSpeechPartialResults = _this.handleSpeechPartialResults.bind(_this);
         return _this;
     }
     MicButton.prototype.handleSpeechStart = function () {
