@@ -1,5 +1,5 @@
 import * as tslib_1 from "tslib";
-import React, { Component } from 'react';
+import React, { Component, createRef } from 'react';
 import { OrbitaContext } from './OrbitaProvider';
 import MicButton from './MicButton';
 import { APIClient } from 'orbita-api-client';
@@ -8,6 +8,7 @@ var OrbitaMicButton = /** @class */ (function (_super) {
     tslib_1.__extends(OrbitaMicButton, _super);
     function OrbitaMicButton() {
         var _this = _super !== null && _super.apply(this, arguments) || this;
+        _this.mic = createRef();
         _this.sendMessage = function (message) { return tslib_1.__awaiter(_this, void 0, void 0, function () {
             var settings, _a, customData, sessionId, onResults, onError, onSend, endpoint, client, response;
             return tslib_1.__generator(this, function (_b) {
@@ -46,6 +47,16 @@ var OrbitaMicButton = /** @class */ (function (_super) {
                 }
             });
         }); };
+        _this.record = function () {
+            if (_this.mic.current) {
+                _this.mic.current.record();
+            }
+        };
+        _this.stopRecording = function () {
+            if (_this.mic.current) {
+                _this.mic.current.stopRecording();
+            }
+        };
         _this.handleResults = function (message) { return tslib_1.__awaiter(_this, void 0, void 0, function () {
             return tslib_1.__generator(this, function (_a) {
                 switch (_a.label) {
@@ -59,7 +70,7 @@ var OrbitaMicButton = /** @class */ (function (_super) {
         return _this;
     }
     OrbitaMicButton.prototype.render = function () {
-        return (React.createElement(MicButton, { onResults: this.handleResults }));
+        return (React.createElement(MicButton, { ref: this.mic, onResults: this.handleResults }));
     };
     OrbitaMicButton.contextType = OrbitaContext;
     return OrbitaMicButton;

@@ -11,7 +11,10 @@ export default class OrbitaMicButton extends Component<Props> {
     static contextType: React.Context<{
         endpoint: string;
     }>;
+    private mic;
     sendMessage: (message: string) => Promise<void>;
+    record: () => void;
+    stopRecording: () => void;
     handleResults: (message: string) => Promise<void>;
     render(): JSX.Element;
 }

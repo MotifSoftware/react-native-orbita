@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, createRef } from 'react';
 import { OrbitaContext } from './OrbitaProvider';
 import MicButton from './MicButton';
 import { APIClient } from 'orbita-api-client';
@@ -14,6 +14,8 @@ export interface Props {
 
 export default class OrbitaMicButton extends Component<Props> {
   static contextType = OrbitaContext;
+
+  private mic = createRef<MicButton>();
 
   sendMessage = async (message: string) => {
     const settings = this.context;
@@ -45,13 +47,28 @@ export default class OrbitaMicButton extends Component<Props> {
     }
   };
 
+  record = () => {
+    if (this.mic.current) {
+      this.mic.current.record();
+    }
+  }
+
+  stopRecording = () => {
+    if (this.mic.current) {
+      this.mic.current.stopRecording();
+    }
+  }
+
   handleResults = async (message: string) => {
     await this.sendMessage(message);
   };
 
   render() {
     return (
-      <MicButton onResults={this.handleResults} />
+      <MicButton
+        ref={this.mic}
+        onResults={this.handleResults}
+      />
     );
   }
 }
