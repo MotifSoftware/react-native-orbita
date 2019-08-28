@@ -1,5 +1,5 @@
 
-package com.reactlibrary;
+package com.react_native_orbita;
 
 import java.util.Arrays;
 import java.util.Collections;
