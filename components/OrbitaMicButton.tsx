@@ -6,10 +6,14 @@ import { OrbitaResponse } from './types';
 
 export interface Props {
   sessionId: string;
-  customData?: any,
+  customData?: any;
+  silenceTimeout?: number;
   onResults?: (response:OrbitaResponse, requestText: string) => any;
   onSend?: (text: string) => any;
   onError?: (error: Error | string, requestText: string) => any;
+  onNoResults? : () => any;
+  onStartRecording? : () => any;
+  onStopRecording? : () => any;
 };
 
 export default class OrbitaMicButton extends Component<Props> {
@@ -63,11 +67,41 @@ export default class OrbitaMicButton extends Component<Props> {
     await this.sendMessage(message);
   };
 
+  handleNoResults = () => {
+    const { onNoResults } = this.props;
+
+    if (onNoResults) {
+      onNoResults();
+    }
+  };
+
+  handleStartRecording = () => {
+    const { onStartRecording } = this.props;
+
+    if (onStartRecording) {
+      onStartRecording();
+    }
+  };
+
+  handleStopRecording = () => {
+    const { onStopRecording } = this.props;
+
+    if (onStopRecording) {
+      onStopRecording();
+    }
+  };
+
   render() {
+    const { silenceTimeout } = this.props;
+    
     return (
       <MicButton
         ref={this.mic}
+        silenceTimeout={silenceTimeout}
         onResults={this.handleResults}
+        onNoResults={this.handleNoResults}
+        onStartRecording={this.handleStartRecording}
+        onStopRecording={this.handleStopRecording}
       />
     );
   }

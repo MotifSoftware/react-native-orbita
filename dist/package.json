@@ -15,8 +15,8 @@
   "license": "MIT",
   "peerDependencies": {
     "react-native": "^0.59.6",
-    "react-native-windows": "^0.57.1",
-    "react-native-voice": "^0.2.6"
+    "react-native-audio": "github:MotifSoftware/react-native-audio",
+    "react-native-windows": "^0.57.1"
   },
   "dependencies": {
     "orbita-api-client": "github:MotifSoftware/orbita-api-client",

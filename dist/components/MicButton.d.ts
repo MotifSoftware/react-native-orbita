@@ -1,29 +1,42 @@
-/// <reference types="node" />
 import { Component } from 'react';
-import { SpeechResults } from 'react-native-voice';
+import { AudioEncodingType, RecordingOptions } from 'react-native-audio';
 export interface Props {
+    onStartRecording: () => any;
+    onStopRecording: () => any;
     onResults: (text: string) => any;
+    onNoResults: () => any;
     silenceTimeout?: number;
 }
 export interface State {
     isRecording: boolean;
-    lastMessage: string;
-    results: string;
+    meteringRecord: Array<number>;
+    hasPermission: boolean;
+    audioPath: string;
+    recordingOptions: RecordingOptions;
 }
 export default class MicButton extends Component<Props, State> {
     static defaultProps: {
         silenceTimeout: number;
     };
-    state: State;
-    timeoutHandle: NodeJS.Timeout | null;
+    state: {
+        isRecording: boolean;
+        meteringRecord: number[];
+        hasPermission: boolean;
+        audioPath: string;
+        recordingOptions: {
+            SampleRate: number;
+            Channels: number;
+            AudioQuality: "Low";
+            AudioEncoding: AudioEncodingType;
+            IncludeBase64: boolean;
+            MeteringEnabled: boolean;
+        };
+    };
     constructor(props: Props);
-    handleSpeechStart(): void;
-    handleSpeechEnd(): void;
-    handleSpeechPartialResults(response: SpeechResults): void;
-    stopRecording: () => void;
-    record: () => void;
-    checkIfSilent: () => void;
-    setTimeout: () => void;
-    clearTimeout: () => void;
+    componentDidMount(): void;
+    prepareToRecord(): Promise<boolean>;
+    prepareRecordingPath(audioPath: string): Promise<void>;
+    record(): Promise<void>;
+    stopRecording(): Promise<void>;
     render(): JSX.Element;
 }

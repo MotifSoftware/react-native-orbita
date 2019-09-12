@@ -67,10 +67,29 @@ var OrbitaMicButton = /** @class */ (function (_super) {
                 }
             });
         }); };
+        _this.handleNoResults = function () {
+            var onNoResults = _this.props.onNoResults;
+            if (onNoResults) {
+                onNoResults();
+            }
+        };
+        _this.handleStartRecording = function () {
+            var onStartRecording = _this.props.onStartRecording;
+            if (onStartRecording) {
+                onStartRecording();
+            }
+        };
+        _this.handleStopRecording = function () {
+            var onStopRecording = _this.props.onStopRecording;
+            if (onStopRecording) {
+                onStopRecording();
+            }
+        };
         return _this;
     }
     OrbitaMicButton.prototype.render = function () {
-        return (React.createElement(MicButton, { ref: this.mic, onResults: this.handleResults }));
+        var silenceTimeout = this.props.silenceTimeout;
+        return (React.createElement(MicButton, { ref: this.mic, silenceTimeout: silenceTimeout, onResults: this.handleResults, onNoResults: this.handleNoResults, onStartRecording: this.handleStartRecording, onStopRecording: this.handleStopRecording }));
     };
     OrbitaMicButton.contextType = OrbitaContext;
     return OrbitaMicButton;
