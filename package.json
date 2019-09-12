@@ -1,0 +1,32 @@
+{
+  "name": "react-native-orbita",
+  "version": "1.0.10",
+  "description": "React Native framework for interfacing with the Orbita API.",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "rm -fr dist && tsc && cp package.json ./dist && cp -fr components/assets dist/components/assets",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "react-native"
+  ],
+  "author": "Orbita",
+  "license": "MIT",
+  "peerDependencies": {
+    "react-native": "^0.59.6",
+    "react-native-windows": "^0.57.1",
+    "react-native-voice": "^0.2.6"
+  },
+  "dependencies": {
+    "orbita-api-client": "github:MotifSoftware/orbita-api-client",
+    "tslib": "^1.9.3"
+  },
+  "devDependencies": {
+    "@types/react": "^16.8.13",
+    "@types/react-native": "^0.57.45",
+    "react-native-scripts-ts": "1.7.0",
+    "react-native-typescript-transformer": "^1.2.12",
+    "typescript": "^2.9.2"
+  }
+}
