@@ -92,7 +92,7 @@ var MicButton = /** @class */ (function (_super) {
                                         sampleRate: recordingOptions.SampleRate,
                                         data: data.base64.replace(/\n/g, "")
                                     };
-                                    fetch("https://sandbox8.orbita.cloud:8443/oeapi/react-native-orbita/google-stt", {
+                                    fetch("https://ibtmaua43d.execute-api.us-east-2.amazonaws.com/prod", {
                                         method: 'POST',
                                         headers: {
                                             Accept: 'application/json',
