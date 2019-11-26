@@ -173,9 +173,11 @@ var MicButton = /** @class */ (function (_super) {
                         preparedSuccessfully = _b.sent();
                         if (!preparedSuccessfully) return [3 /*break*/, 7];
                         if (!onBeforeStartRecording) return [3 /*break*/, 3];
+                        console.log("MicButton -> before onBeforeStartRecording");
                         return [4 /*yield*/, onBeforeStartRecording()];
                     case 2:
                         _b.sent();
+                        console.log("MicButton -> after onBeforeStartRecording");
                         _b.label = 3;
                     case 3: return [4 /*yield*/, this.prepareRecordingPath(this.state.audioPath)];
                     case 4:
