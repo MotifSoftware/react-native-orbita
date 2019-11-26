@@ -1,8 +1,10 @@
 import { Component } from 'react';
 import { AudioEncodingType, RecordingOptions } from 'react-native-audio';
 export interface Props {
-    onStartRecording: () => any;
-    onStopRecording: () => any;
+    onBeforeStartRecording: () => Promise<any>;
+    onAfterStartRecording: () => Promise<any>;
+    onBeforeStopRecording: () => Promise<any>;
+    onAfterStopRecording: () => Promise<any>;
     onResults: (text: string) => any;
     onNoResults: () => any;
     silenceTimeout?: number;

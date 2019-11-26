@@ -12,8 +12,10 @@ export interface Props {
   onSend?: (text: string) => any;
   onError?: (error: Error | string, requestText: string) => any;
   onNoResults? : () => any;
-  onStartRecording? : () => any;
-  onStopRecording? : () => any;
+  onBeforeStartRecording? : () => Promise<any>;
+  onAfterStartRecording? : () => Promise<any>;
+  onBeforeStopRecording? : () => Promise<any>;
+  onAfterStopRecording? : () => Promise<any>;
 };
 
 export default class OrbitaMicButton extends Component<Props> {
@@ -75,19 +77,35 @@ export default class OrbitaMicButton extends Component<Props> {
     }
   };
 
-  handleStartRecording = () => {
-    const { onStartRecording } = this.props;
+  handleBeforeStartRecording = async () => {
+    const { onBeforeStartRecording } = this.props;
 
-    if (onStartRecording) {
-      onStartRecording();
+    if (onBeforeStartRecording) {
+      onBeforeStartRecording();
     }
   };
 
-  handleStopRecording = () => {
-    const { onStopRecording } = this.props;
+  handleAfterStartRecording = async () => {
+    const { onAfterStartRecording } = this.props;
 
-    if (onStopRecording) {
-      onStopRecording();
+    if (onAfterStartRecording) {
+      await onAfterStartRecording();
+    }
+  };
+
+  handleBeforeStopRecording = async () => {
+    const { onBeforeStopRecording } = this.props;
+
+    if (onBeforeStopRecording) {
+      await onBeforeStopRecording();
+    }
+  };
+
+  handleAfterStopRecording = async () => {
+    const { onAfterStopRecording } = this.props;
+
+    if (onAfterStopRecording) {
+      await onAfterStopRecording();
     }
   };
 
@@ -100,8 +118,10 @@ export default class OrbitaMicButton extends Component<Props> {
         silenceTimeout={silenceTimeout}
         onResults={this.handleResults}
         onNoResults={this.handleNoResults}
-        onStartRecording={this.handleStartRecording}
-        onStopRecording={this.handleStopRecording}
+        onBeforeStartRecording={this.handleBeforeStartRecording}
+        onAfterStartRecording={this.handleAfterStartRecording}
+        onBeforeStopRecording={this.handleBeforeStopRecording}
+        onAfterStopRecording={this.handleAfterStopRecording}
       />
     );
   }

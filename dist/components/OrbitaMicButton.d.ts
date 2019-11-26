@@ -8,8 +8,10 @@ export interface Props {
     onSend?: (text: string) => any;
     onError?: (error: Error | string, requestText: string) => any;
     onNoResults?: () => any;
-    onStartRecording?: () => any;
-    onStopRecording?: () => any;
+    onBeforeStartRecording?: () => Promise<any>;
+    onAfterStartRecording?: () => Promise<any>;
+    onBeforeStopRecording?: () => Promise<any>;
+    onAfterStopRecording?: () => Promise<any>;
 }
 export default class OrbitaMicButton extends Component<Props> {
     static contextType: React.Context<{
@@ -21,7 +23,9 @@ export default class OrbitaMicButton extends Component<Props> {
     stopRecording: () => void;
     handleResults: (message: string) => Promise<void>;
     handleNoResults: () => void;
-    handleStartRecording: () => void;
-    handleStopRecording: () => void;
+    handleBeforeStartRecording: () => Promise<void>;
+    handleAfterStartRecording: () => Promise<void>;
+    handleBeforeStopRecording: () => Promise<void>;
+    handleAfterStopRecording: () => Promise<void>;
     render(): JSX.Element;
 }

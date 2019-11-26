@@ -73,23 +73,66 @@ var OrbitaMicButton = /** @class */ (function (_super) {
                 onNoResults();
             }
         };
-        _this.handleStartRecording = function () {
-            var onStartRecording = _this.props.onStartRecording;
-            if (onStartRecording) {
-                onStartRecording();
-            }
-        };
-        _this.handleStopRecording = function () {
-            var onStopRecording = _this.props.onStopRecording;
-            if (onStopRecording) {
-                onStopRecording();
-            }
-        };
+        _this.handleBeforeStartRecording = function () { return tslib_1.__awaiter(_this, void 0, void 0, function () {
+            var onBeforeStartRecording;
+            return tslib_1.__generator(this, function (_a) {
+                onBeforeStartRecording = this.props.onBeforeStartRecording;
+                if (onBeforeStartRecording) {
+                    onBeforeStartRecording();
+                }
+                return [2 /*return*/];
+            });
+        }); };
+        _this.handleAfterStartRecording = function () { return tslib_1.__awaiter(_this, void 0, void 0, function () {
+            var onAfterStartRecording;
+            return tslib_1.__generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        onAfterStartRecording = this.props.onAfterStartRecording;
+                        if (!onAfterStartRecording) return [3 /*break*/, 2];
+                        return [4 /*yield*/, onAfterStartRecording()];
+                    case 1:
+                        _a.sent();
+                        _a.label = 2;
+                    case 2: return [2 /*return*/];
+                }
+            });
+        }); };
+        _this.handleBeforeStopRecording = function () { return tslib_1.__awaiter(_this, void 0, void 0, function () {
+            var onBeforeStopRecording;
+            return tslib_1.__generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        onBeforeStopRecording = this.props.onBeforeStopRecording;
+                        if (!onBeforeStopRecording) return [3 /*break*/, 2];
+                        return [4 /*yield*/, onBeforeStopRecording()];
+                    case 1:
+                        _a.sent();
+                        _a.label = 2;
+                    case 2: return [2 /*return*/];
+                }
+            });
+        }); };
+        _this.handleAfterStopRecording = function () { return tslib_1.__awaiter(_this, void 0, void 0, function () {
+            var onAfterStopRecording;
+            return tslib_1.__generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        onAfterStopRecording = this.props.onAfterStopRecording;
+                        if (!onAfterStopRecording) return [3 /*break*/, 2];
+                        return [4 /*yield*/, onAfterStopRecording()];
+                    case 1:
+                        _a.sent();
+                        _a.label = 2;
+                    case 2: return [2 /*return*/];
+                }
+            });
+        }); };
         return _this;
     }
     OrbitaMicButton.prototype.render = function () {
         var silenceTimeout = this.props.silenceTimeout;
-        return (React.createElement(MicButton, { ref: this.mic, silenceTimeout: silenceTimeout, onResults: this.handleResults, onNoResults: this.handleNoResults, onStartRecording: this.handleStartRecording, onStopRecording: this.handleStopRecording }));
+        return (React.createElement(MicButton, { ref: this.mic, silenceTimeout: silenceTimeout, onResults: this.handleResults, onNoResults: this.handleNoResults, onBeforeStartRecording: this.handleBeforeStartRecording, onAfterStartRecording: this.handleAfterStartRecording, onBeforeStopRecording: this.handleBeforeStopRecording, onAfterStopRecording: this.handleAfterStopRecording }));
     };
     OrbitaMicButton.contextType = OrbitaContext;
     return OrbitaMicButton;

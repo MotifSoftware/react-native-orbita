@@ -7,8 +7,10 @@ import icon from './assets/microphone.png';
 import activeIcon from './assets/microphone-active.png';
 
 export interface Props {
-  onStartRecording: () => any;
-  onStopRecording: () => any;
+  onBeforeStartRecording: () => Promise<any>;
+  onAfterStartRecording: () => Promise<any>;
+  onBeforeStopRecording: () => Promise<any>;
+  onAfterStopRecording: () => Promise<any>;
   onResults: (text: string) => any;
   onNoResults: () => any;
   silenceTimeout?: number;
@@ -172,25 +174,39 @@ export default class MicButton extends Component<Props, State> {
   }
 
   async record() {
-    const { onStartRecording } = this.props;
+    const { onBeforeStartRecording, onAfterStartRecording } = this.props;
 
     const preparedSuccessfully = await this.prepareToRecord();
 
     if (preparedSuccessfully) {  
+      if (onBeforeStartRecording) {
+        await onBeforeStartRecording();
+      }
+
       await this.prepareRecordingPath(this.state.audioPath);  
       await AudioRecorder.startRecording();
       this.setState({ isRecording: true });
-      onStartRecording();
+      
+      if (onAfterStartRecording) {
+        await onAfterStartRecording();
+      }
     }
   }
 
   async stopRecording() {
-    const { onStopRecording } = this.props;
+    const { onBeforeStopRecording, onAfterStopRecording } = this.props;
 
     if (this.state.isRecording) {
+      if (onBeforeStopRecording) {
+        await onBeforeStopRecording();
+      }
+
       await AudioRecorder.stopRecording();
       this.setState({ isRecording: false });
-      onStopRecording();
+
+      if (onAfterStopRecording) {
+        await onAfterStopRecording();
+      }
     }
   }
 

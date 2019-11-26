@@ -163,44 +163,60 @@ var MicButton = /** @class */ (function (_super) {
     };
     MicButton.prototype.record = function () {
         return tslib_1.__awaiter(this, void 0, void 0, function () {
-            var onStartRecording, preparedSuccessfully;
-            return tslib_1.__generator(this, function (_a) {
-                switch (_a.label) {
+            var _a, onBeforeStartRecording, onAfterStartRecording, preparedSuccessfully;
+            return tslib_1.__generator(this, function (_b) {
+                switch (_b.label) {
                     case 0:
-                        onStartRecording = this.props.onStartRecording;
+                        _a = this.props, onBeforeStartRecording = _a.onBeforeStartRecording, onAfterStartRecording = _a.onAfterStartRecording;
                         return [4 /*yield*/, this.prepareToRecord()];
                     case 1:
-                        preparedSuccessfully = _a.sent();
-                        if (!preparedSuccessfully) return [3 /*break*/, 4];
-                        return [4 /*yield*/, this.prepareRecordingPath(this.state.audioPath)];
+                        preparedSuccessfully = _b.sent();
+                        if (!preparedSuccessfully) return [3 /*break*/, 7];
+                        if (!onBeforeStartRecording) return [3 /*break*/, 3];
+                        return [4 /*yield*/, onBeforeStartRecording()];
                     case 2:
-                        _a.sent();
+                        _b.sent();
+                        _b.label = 3;
+                    case 3: return [4 /*yield*/, this.prepareRecordingPath(this.state.audioPath)];
+                    case 4:
+                        _b.sent();
                         return [4 /*yield*/, AudioRecorder.startRecording()];
-                    case 3:
-                        _a.sent();
+                    case 5:
+                        _b.sent();
                         this.setState({ isRecording: true });
-                        onStartRecording();
-                        _a.label = 4;
-                    case 4: return [2 /*return*/];
+                        if (!onAfterStartRecording) return [3 /*break*/, 7];
+                        return [4 /*yield*/, onAfterStartRecording()];
+                    case 6:
+                        _b.sent();
+                        _b.label = 7;
+                    case 7: return [2 /*return*/];
                 }
             });
         });
     };
     MicButton.prototype.stopRecording = function () {
         return tslib_1.__awaiter(this, void 0, void 0, function () {
-            var onStopRecording;
-            return tslib_1.__generator(this, function (_a) {
-                switch (_a.label) {
+            var _a, onBeforeStopRecording, onAfterStopRecording;
+            return tslib_1.__generator(this, function (_b) {
+                switch (_b.label) {
                     case 0:
-                        onStopRecording = this.props.onStopRecording;
-                        if (!this.state.isRecording) return [3 /*break*/, 2];
-                        return [4 /*yield*/, AudioRecorder.stopRecording()];
+                        _a = this.props, onBeforeStopRecording = _a.onBeforeStopRecording, onAfterStopRecording = _a.onAfterStopRecording;
+                        if (!this.state.isRecording) return [3 /*break*/, 5];
+                        if (!onBeforeStopRecording) return [3 /*break*/, 2];
+                        return [4 /*yield*/, onBeforeStopRecording()];
                     case 1:
-                        _a.sent();
+                        _b.sent();
+                        _b.label = 2;
+                    case 2: return [4 /*yield*/, AudioRecorder.stopRecording()];
+                    case 3:
+                        _b.sent();
                         this.setState({ isRecording: false });
-                        onStopRecording();
-                        _a.label = 2;
-                    case 2: return [2 /*return*/];
+                        if (!onAfterStopRecording) return [3 /*break*/, 5];
+                        return [4 /*yield*/, onAfterStopRecording()];
+                    case 4:
+                        _b.sent();
+                        _b.label = 5;
+                    case 5: return [2 /*return*/];
                 }
             });
         });
