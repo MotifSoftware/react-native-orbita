@@ -172,6 +172,7 @@ var MicButton = /** @class */ (function (_super) {
                     case 1:
                         preparedSuccessfully = _b.sent();
                         if (!preparedSuccessfully) return [3 /*break*/, 7];
+                        console.log("MicButton -> did preparedSuccessfully");
                         if (!onBeforeStartRecording) return [3 /*break*/, 3];
                         console.log("MicButton -> before onBeforeStartRecording");
                         return [4 /*yield*/, onBeforeStartRecording()];

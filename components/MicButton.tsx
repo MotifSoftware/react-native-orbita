@@ -179,6 +179,8 @@ export default class MicButton extends Component<Props, State> {
     const preparedSuccessfully = await this.prepareToRecord();
 
     if (preparedSuccessfully) {  
+      console.log("MicButton -> did preparedSuccessfully");
+
       if (onBeforeStartRecording) {
         console.log("MicButton -> before onBeforeStartRecording");
         await onBeforeStartRecording();

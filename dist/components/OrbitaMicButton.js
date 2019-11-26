@@ -79,6 +79,7 @@ var OrbitaMicButton = /** @class */ (function (_super) {
                 switch (_a.label) {
                     case 0:
                         onBeforeStartRecording = this.props.onBeforeStartRecording;
+                        console.log("OrbitaMicButton -> onBeforeStartRecording");
                         if (!onBeforeStartRecording) return [3 /*break*/, 2];
                         console.log("OrbitaMicButton -> before onBeforeStartRecording");
                         return [4 /*yield*/, onBeforeStartRecording()];
