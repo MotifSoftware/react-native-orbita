@@ -76,11 +76,16 @@ var OrbitaMicButton = /** @class */ (function (_super) {
         _this.handleBeforeStartRecording = function () { return tslib_1.__awaiter(_this, void 0, void 0, function () {
             var onBeforeStartRecording;
             return tslib_1.__generator(this, function (_a) {
-                onBeforeStartRecording = this.props.onBeforeStartRecording;
-                if (onBeforeStartRecording) {
-                    onBeforeStartRecording();
+                switch (_a.label) {
+                    case 0:
+                        onBeforeStartRecording = this.props.onBeforeStartRecording;
+                        if (!onBeforeStartRecording) return [3 /*break*/, 2];
+                        return [4 /*yield*/, onBeforeStartRecording()];
+                    case 1:
+                        _a.sent();
+                        _a.label = 2;
+                    case 2: return [2 /*return*/];
                 }
-                return [2 /*return*/];
             });
         }); };
         _this.handleAfterStartRecording = function () { return tslib_1.__awaiter(_this, void 0, void 0, function () {

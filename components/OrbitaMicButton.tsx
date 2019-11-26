@@ -81,7 +81,7 @@ export default class OrbitaMicButton extends Component<Props> {
     const { onBeforeStartRecording } = this.props;
 
     if (onBeforeStartRecording) {
-      onBeforeStartRecording();
+      await onBeforeStartRecording();
     }
   };
 
